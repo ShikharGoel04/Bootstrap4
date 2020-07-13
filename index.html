@@ -14,6 +14,44 @@
      <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
     <title>Ristorante Con Fusion</title>
 </head>
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="content">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Login </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label class="sr-only" for="exampleInputPassword3">Password</label>
+                            <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                        </div>
+                        <div class="col-sm-auto">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox">
+                                <label class="form-check-label"> Remember me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="reserveModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg" role="content">
     <div class="modal-content">
@@ -24,12 +62,9 @@
         </div>
         <div class="modal-body">
             <form>
-                <div class="card">
-                <h3 class="card-header bg-warning text-white">Reserve a Table</h3>
-                <div class="card-body">
-                    <dl class="row">
-                        <dd class="col-3">Number of Guest</dd>
-                        <dd class="col-9">     <label class="radio-inline">
+               <div class="form-row">
+                        <div class="col-3">Number of Guest</div>
+                        <div class="col-9">     <label class="radio-inline">
              <input type="radio" name="guest">&nbsp;1&nbsp;</label>
                 <label class="radio-inline">
                     <input type="radio" name="guest">&nbsp;2&nbsp;</label>
@@ -40,12 +75,13 @@
                             <label class="radio-inline">
                                 <input type="radio" name="guest">&nbsp;5&nbsp;</label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="guest">&nbsp;6&nbsp;</label></dd>
-                                </dl>
-                                <dl class="row">
-                                    <dd class="col-sm-3">Section</dd>
-                                    <dd></dd>
-                                    <dd class="col-sm-6">
+                                    <input type="radio" name="guest">&nbsp;6&nbsp;</label></div>
+                                </div>
+                               <br>
+                                <div class="form-row">
+                                    <div class="col-sm-3">Section</div>
+                                    <div></div>
+                                    <div class="col-sm-6">
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                             <label class="btn btn-success active">
                                                 <input type="radio" name="options" id="option1" autocomplete="off">Non-Smoking
@@ -54,24 +90,28 @@
                                                 <input type="radio" name="options" id="option1" autocomplete="off">Smoking
                                               </label>
                                             </div>
-                                        </dd>
-                                    </dl>
-                                    <dl class="row">
-                                    <dd class="col-3">Date and Time</dd>
-                                    <dd class="col-2"><input type="text" class="form-control" placeholder="Date"></dd>
-                                    <dd class="col-2"><input type="text" class="form-control" placeholder="Time"></dd>
-                                    </dl>
-                                    <dl class="row">
-                                    <dd class="col-4 offset-sm-3"><button type="submit" class="btn btn-primary">Reserve</button>
-                                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancel</button></dd>
-                    </dl>
-            </div> 
-        </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-row">
+                                    <div class="col-3">Date and Time</div>
+                                    <div class="col-2"><input type="text" class="form-control" placeholder="Date"></div>
+                                    <div class="col-2"><input type="text" class="form-control" placeholder="Time"></div>
+                                    </div>
+                                    <br>
+                                    <div class="form-row">
+                                    <div class="col-4 offset-sm-3"><button type="submit" class="btn btn-primary">Reserve</button>
+                                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancel</button></div>
+                    </div>
+                    <br>
                 </form>
+            </div> 
+
+        </div>
+               
             </div>    
     </div>    
-    </div>    
-    </div>
+    
 <nav class="navbar navbar-dark row-nav fixed-top navbar-expand-sm">
 <div class="container">
 <ul class="navbar-nav">
@@ -82,7 +122,7 @@
 <li class="nav-item"><a class="nav-link" href="./contactus.html"><i class="fa fa-address-card fa-lg"></i>Contact Us</a></li>
 </ul>
 <span class="navbar-text">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reserveModal">
+    <button type="button" class="btn btn-primary" id="login">
         <span class="fa fa-sign-in"></span>
         Login
         </a>
@@ -101,7 +141,7 @@
             <img src="img/logo.png">
             </div>
             <div class="col-sm align-self-center">
-           <button type="submit" data-toggle="modal" data-target="#reserveModal" class="btn btn-block btn-warning">Reserve Table</button>
+           <button type="submit" id="reserve" class="btn btn-block btn-warning">Reserve Table</button>
                     </div>
                     
                 </div>
@@ -198,6 +238,14 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $("#reserve").click(function(){
+            $("#reserveModal").modal();
+        })
+        $("#login").click(function(){
+            $("#loginModal").modal();
+        })
+          </script>
 </body>
 
 </html>
